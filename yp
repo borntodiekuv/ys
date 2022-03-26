@@ -1,0 +1,162 @@
+_G.Color = Color3.fromRGB(255, 0, 0)
+_G.Color2 = Color3.fromRGB(255, 0, 0)
+
+local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/slightten/ui-libs/main/funni"))()
+local window = library:CreateWindow("Teleport to Position", Enum.KeyCode.RightControl)
+local plr = game.Players.LocalPlayer
+local tab1 = window:CreateTab("Main")
+local tab2 = window:CreateTab("Misc")
+local sect2 = tab2:CreateSector("Misc", 'left')
+sect2:AddLabel("V3rm borntodie1")
+
+local sect1 = tab1:CreateSector("Teleports", 'left')
+sect1:AddButton("Account 1", function() 
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =  CFrame.new(267, -7, 219)
+
+
+end)
+
+sect1:AddButton("Account 2", function() 
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(265, -7, 219)
+
+
+end)
+sect1:AddButton("Account 3", function() 
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(263, -7, 219)
+
+
+end)
+sect1:AddButton("Account 4", function() 
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(261, -7, 219)
+
+
+end)
+sect1:AddButton("Account 5", function() 
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(259, -7, 219)
+
+
+end)
+sect1:AddButton("Account 6", function() 
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(257, -7, 219)
+
+
+end)
+sect1:AddButton("Account 7", function() 
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(267, -7, 222)
+
+end)
+sect1:AddButton("Account 8", function() 
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(265, -7, 222)
+
+
+end)
+sect1:AddButton("Account 9", function() 
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(263, -7, 222)
+
+
+end)
+sect1:AddButton("Account 10", function() 
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(261, -7, 222)
+
+
+end)
+sect1:AddButton("Account 11", function() 
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(259, -7, 222)
+
+
+end)
+sect1:AddButton("Account 12", function() 
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(257, -7, 222)
+
+
+end)
+sect1:AddButton("Account 13", function() 
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(267, -7, 225)
+
+
+end)
+sect1:AddButton("Account 14", function() 
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(265, -7, 225)
+
+
+end)
+sect1:AddButton("Account 15", function() 
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(263, -7, 225)
+
+end)
+
+local sect2 = tab1:CreateSector("Teleports", 'Right')
+
+sect2:AddButton("Account 16", function() 
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(261, -7, 225)
+
+
+end)
+sect2:AddButton("Account 17", function() 
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(259, -7, 225)
+
+end)
+sect2:AddButton("Account 18", function() 
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(257, -7, 225)
+
+end)
+sect2:AddButton("Account 19", function() 
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(267, -7, 228)
+
+
+end)
+sect2:AddButton("Account 20", function() 
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(265, -7, 228)
+
+
+end)
+sect2:AddButton("Account 21", function() 
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(263, -7, 228)
+
+
+end)
+sect2:AddButton("Account 22", function() 
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(261, -7, 228)
+
+
+end)
+sect2:AddButton("Account 23", function() 
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(259, -7, 228)
+
+
+end)
+sect2:AddButton("Account 24", function() 
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(257, -7, 228)
+
+
+end)
+sect2:AddButton("Account 25", function() 
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(267, -7, 231)
+
+
+end)
+sect2:AddButton("Account 26", function() 
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(265, -7, 231)
+
+
+end)
+sect2:AddButton("Account 27", function() 
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(263, -7, 231)
+
+
+end)
+sect2:AddButton("Account 28", function() 
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(261, -7, 231)
+
+
+end)
+sect2:AddButton("Account 29", function() 
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(259, -7, 231)
+
+
+end)
+sect2:AddButton("Account 30", function() 
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(257, -7, 231)
+
+
+end)
