@@ -113,3 +113,12 @@ sect1:AddButton("Engineer", function()
     fireclickdetector(game:GetService("Workspace").NPCs.Engineers.Engineer.ClickPart:FindFirstChild("ClickDetector"))
 
 end)
+
+sect1:AddButton("Crock", function() 
+
+    fireclickdetector(game:GetService("Workspace")["The Eagle"]:FindFirstChild("ClickDetector"))
+end)
+
+
+local sect1 = tab1:CreateSector("Main", 'right')
+
