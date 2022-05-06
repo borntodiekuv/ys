@@ -80,12 +80,14 @@ end})
 Window:AddToggle({text = "Safe Auto Arena", flag = "toggle", state = false, callback = function(b)
     bb = b
     while bb do task.wait()
+        pcall(function()
 
             local args = {
             [1] = getNPC2()
             }
 
             game:GetService("ReplicatedStorage").Remotes.HeroRemotes.AttackEnemy:FireServer(unpack(args))
+        end)
     end
 end})
 
