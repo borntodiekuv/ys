@@ -1,0 +1,95 @@
+for i,v in next, game.CoreGui:GetChildren() do
+    if v.Name == "ScreenGui" and v.ImageButton then
+        v:Destroy()
+    end
+    end
+
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/sannin9000/Ui-Libraries/main/uwuware", true))()
+
+local Window = Library:CreateWindow"Multiverse Fighters Simulator"
+
+for i,v in pairs(getconnections(game:GetService("Players").LocalPlayer.Idled)) do
+    v:Disable()
+    end
+
+local function getNPC1()
+    local dist, thing = math.huge
+    for _,v in pairs(game:GetService("Workspace").Maps:GetDescendants()) do
+        if v:IsA "Part" and v.Name == "HumanoidRootPart" then
+            local mag = (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.Position).magnitude
+            if mag < dist then 
+                dist = mag 
+                thing = v 
+            end
+        end
+    end
+    return thing
+end
+
+local function getNPC2()
+    local dist, thing = math.huge
+    for _,v in pairs(game:GetService("Workspace").Arenas:GetDescendants()) do
+        if  v.Parent.Name == "ArenaEnemies" and v.Health.Value > 0  then
+            local mag = (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.HumanoidRootPart.Position).magnitude
+            if mag < dist then 
+                dist = mag 
+                thing = v 
+            end
+        end
+    end
+    return thing
+end
+
+
+
+
+Window:AddToggle({text = "Autoclick", flag = "toggle", state = false, callback = function(a)
+    aa = a
+    while aa do task.wait()
+
+        game:GetService("ReplicatedStorage").Remotes.HeroRemotes.AttackClick:InvokeServer()
+    end
+end})
+Window:AddToggle({text = "Attack Nearest Enemy", flag = "toggle", state = false, callback = function(c)
+    cc = c
+    while cc do task.wait()
+local args = {
+    [1] = getNPC1().Parent
+}
+
+game:GetService("ReplicatedStorage").Remotes.HeroRemotes.AttackEnemy:FireServer(unpack(args))
+end
+end})
+
+Window:AddToggle({text = "Auto Arena", flag = "toggle", state = false, callback = function(b)
+    bb = b
+    while bb do task.wait()
+        pcall(function()
+        
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = getNPC2().HumanoidRootPart.CFrame
+
+            local args = {
+            [1] = getNPC2()
+            }
+
+            game:GetService("ReplicatedStorage").Remotes.HeroRemotes.AttackEnemy:FireServer(unpack(args))
+        end)
+    end
+end})
+
+Window:AddToggle({text = "Safe Auto Arena", flag = "toggle", state = false, callback = function(b)
+    bb = b
+    while bb do task.wait()
+
+            local args = {
+            [1] = getNPC2()
+            }
+
+            game:GetService("ReplicatedStorage").Remotes.HeroRemotes.AttackEnemy:FireServer(unpack(args))
+    end
+end})
+
+
+
+Library:Init()
+
