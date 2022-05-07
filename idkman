@@ -93,8 +93,9 @@ Window:AddList({text = "Arena", flag = "list", values = Arena, callback = functi
                             if  v.Name == "ArenaOpen" and v.Value == true  then
                                 
                             game:GetService("ReplicatedStorage").Remotes.ArenaRemotes.JoinArena:InvokeServer()
+                            game.Players.LocalPlayer.Character.Humanoid:Destroy()
                             repeat wait() 
-                                game.Players.LocalPlayer.Character.Humanoid:Destroy()
+                                game:GetService("ReplicatedStorage").Remotes.HeroRemotes.EquipBest:FireServer()
                             until v.Value == false
 
                             
