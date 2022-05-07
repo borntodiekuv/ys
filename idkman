@@ -88,16 +88,18 @@ Window:AddList({text = "Arena", flag = "list", values = Arena, callback = functi
     Window:AddToggle({text = "Auto TP to Arena", flag = "toggle", state = false, callback = function(e)
         ee = e
         while ee do task.wait()
-                    for _,v in pairs(game:GetService("Workspace").Arenas:GetDescendants()) do
-                        if  v.Name == "ArenaOpen" and v.Value == true  then
-                            
-                        game:GetService("ReplicatedStorage").Remotes.ArenaRemotes.JoinArena:InvokeServer()
-    
-                        repeat wait() 
-                            game.Players.LocalPlayer.Character.Humanoid.Health = 0
-                        until v.Value == false
+            pcall(function()
+                        for _,v in pairs(game:GetService("Workspace").Arenas:GetDescendants()) do
+                            if  v.Name == "ArenaOpen" and v.Value == true  then
+                                
+                            game:GetService("ReplicatedStorage").Remotes.ArenaRemotes.JoinArena:InvokeServer()
+        
+                            repeat wait() 
+                                game.Players.LocalPlayer.Character.Humanoid.Health = 0
+                            until v.Value == false
+                        end
                     end
-                end
+                end)
             end
         end})
 
