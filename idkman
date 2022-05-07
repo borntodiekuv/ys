@@ -140,7 +140,7 @@ end})
 
     Eggs:AddToggle({text = "Auto Open Crystals", flag = "toggle", state = false, callback = function(f)
         ff = f
-        while ff do task.wait()
+        while ff do task.wait(.5)
     
                 local args = {
                     [1] = eggs
