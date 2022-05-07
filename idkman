@@ -55,11 +55,13 @@ end})
 Window:AddToggle({text = "Attack Nearest Enemy", flag = "toggle", state = false, callback = function(c)
     cc = c
     while cc do task.wait()
+        pcall(function()
 local args = {
     [1] = getNPC1().Parent
 }
 
 game:GetService("ReplicatedStorage").Remotes.HeroRemotes.AttackEnemy:FireServer(unpack(args))
+end)
 end
 end})
 
