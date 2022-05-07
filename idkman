@@ -8,9 +8,24 @@ local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/sanni
 
 local Window = Library:CreateWindow"Multiverse Fighters Simulator"
 
+local Eggs = Library:CreateWindow"Eggs"
+
+
 for i,v in pairs(getconnections(game:GetService("Players").LocalPlayer.Idled)) do
     v:Disable()
     end
+
+    local Arena = {}
+
+    for i,v in pairs(game:GetService("Workspace").Maps:GetChildren()) do
+        if v:IsA"Folder" and v.Parent.Name == "Maps" then
+            table.insert(Arena,tostring(v))
+        end
+    end
+
+
+
+
 
 local function getNPC1()
     local dist, thing = math.huge
@@ -26,19 +41,6 @@ local function getNPC1()
     return thing
 end
 
-local function getNPC2()
-    local dist, thing = math.huge
-    for _,v in pairs(game:GetService("Workspace").Arenas:GetDescendants()) do
-        if  v.Parent.Name == "ArenaEnemies" and v.Health.Value > 0  then
-            local mag = (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.HumanoidRootPart.Position).magnitude
-            if mag < dist then 
-                dist = mag 
-                thing = v 
-            end
-        end
-    end
-    return thing
-end
 
 
 
@@ -60,6 +62,42 @@ local args = {
 game:GetService("ReplicatedStorage").Remotes.HeroRemotes.AttackEnemy:FireServer(unpack(args))
 end
 end})
+
+Window:AddList({text = "Arena", flag = "list", values = Arena, callback = function(Arena)
+    getgenv().arena = Arena
+    end})
+
+
+
+    local function getNPC2()
+        local dist, thing = math.huge
+        for _,v in pairs(game:GetService("Workspace").Arenas[arena]:GetDescendants()) do
+            if  v.Parent.Name == "ArenaEnemies" and v.Health.Value > 0  then
+                local mag = (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.HumanoidRootPart.Position).magnitude
+                if mag < dist then 
+                    dist = mag 
+                    thing = v 
+                end
+            end
+        end
+        return thing
+    end
+
+    Window:AddToggle({text = "Auto TP to Arena", flag = "toggle", state = false, callback = function(e)
+        ee = e
+        while ee do task.wait()
+                    for _,v in pairs(game:GetService("Workspace").Arenas:GetDescendants()) do
+                        if  v.Name == "ArenaOpen" and v.Value == true  then
+                            
+                        game:GetService("ReplicatedStorage").Remotes.ArenaRemotes.JoinArena:InvokeServer()
+    
+                        repeat wait() 
+                            game.Players.LocalPlayer.Character.Humanoid.Health = 0
+                        until v.Value == false
+                    end
+                end
+            end
+        end})
 
 Window:AddToggle({text = "Auto Arena", flag = "toggle", state = false, callback = function(b)
     bb = b
@@ -93,5 +131,26 @@ end})
 
 
 
+
+
+    Eggs:AddList({text = "Maps", flag = "list", values = Arena, callback = function(Arena)
+        getgenv().eggs = Arena
+        end})
+
+
+    Eggs:AddToggle({text = "Auto Open Crystals", flag = "toggle", state = false, callback = function(f)
+        ff = f
+        while ff do task.wait()
+    
+                local args = {
+                    [1] = eggs
+                }
+                
+                game:GetService("ReplicatedStorage").Remotes.InventoryRemotes.HeroRoll:InvokeServer(unpack(args))
+        end
+    end})
+
+
 Library:Init()
+
 
