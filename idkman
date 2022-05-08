@@ -63,7 +63,7 @@ Window:AddToggle({text = "Attack Nearest Enemy", flag = "toggle", state = false,
                     game:GetService("ReplicatedStorage").Remotes.HeroRemotes.AttackEnemy:FireServer(unpack(args))
                     for _,v in pairs(game:GetService("Players"):GetDescendants()) do
                         if  v.Name ==  game.Players.LocalPlayer and v.extrastats.Gamemode.Value == "Arena"  then
-                    repeat wait(300) 
+                    repeat wait()
                         game:GetService("ReplicatedStorage").Remotes.HeroRemotes.AttackClick:InvokeServer()
                     until v.extrastats.Gamemode.Value == "None"
                 end
