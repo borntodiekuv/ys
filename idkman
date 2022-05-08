@@ -201,7 +201,6 @@ Farm:Dropdown("Enemies", Enemyman, function(Enemyman)
         zz = z
         while zz do task.wait()
             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.workspace.Maps.Manhattan.EnemyFolder[enemyman].HumanoidRootPart.CFrame
-            wait(15)
 
     end
 end)
@@ -232,7 +231,6 @@ end
         zz = z
         while zz do task.wait()
             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.workspace.Maps.Zandor.EnemyFolder[enemyzan].HumanoidRootPart.CFrame
-            wait(15)
 
     end
 end)
@@ -263,7 +261,6 @@ Farm:Dropdown("Enemies", Enemyhop, function(Enemyhop)
         zz = z
         while zz do task.wait()
             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.workspace.Maps["Hop City"].EnemyFolder[enemyhop].HumanoidRootPart.CFrame
-            wait(15)
 
     end
 end)
@@ -294,7 +291,6 @@ Farm:Dropdown("Enemies", Enemybat, function(Enemybat)
         zz = z
         while zz do task.wait()
             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.workspace.Maps["Gothic City"].EnemyFolder[enemybat].HumanoidRootPart.CFrame
-            wait(15)
 
     end
 end)
@@ -326,7 +322,6 @@ end)
             zz = z
             while zz do task.wait()
                 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.workspace.Maps["Kumar-Raj"].EnemyFolder[enemyku].HumanoidRootPart.CFrame
-    wait(15)
         end
     end)
 Eggs:Dropdown("Map", Arena, function(Arena)        
