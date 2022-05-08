@@ -66,7 +66,8 @@ for i,v in pairs(getconnections(game:GetService("Players").LocalPlayer.Idled)) d
 local function getNPC1()
     local dist, thing = math.huge
     for _,v in pairs(game:GetService("Workspace").Maps:GetDescendants()) do
-        if v:IsA "Part" and v.Name == "HumanoidRootPart" then
+        if v.Name == "HumanoidRootPart" and  v:IsA"Part" then
+            print(success)
             local mag = (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.Position).magnitude
             if mag < dist then 
                 dist = mag 
@@ -136,7 +137,7 @@ Window:Dropdown("Arena", Arena, function(Arena)
                             game:GetService("ReplicatedStorage").Remotes.ArenaRemotes.JoinArena:InvokeServer()
                             game.Players.LocalPlayer.Character.Humanoid:Destroy()
                             repeat wait() 
-                                game:GetService("ReplicatedStorage").Remotes.HeroRemotes.EquipBest:FireServer()
+                                game:GetService("ReplicatedStorage").Remotes.HeroRemotes.AttackClick:InvokeServer()
                             until v.Value == false
 
                             
