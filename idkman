@@ -70,9 +70,9 @@ Window:AddToggle({text = "Attack Nearest Enemy", flag = "toggle", state = false,
                     repeat wait() 
                         game:GetService("ReplicatedStorage").Remotes.HeroRemotes.AttackClick:InvokeServer()
                     until v.extrastats.Gamemode.Value == "None"
-                end
+                end)
             end
-        end)
+        end
     end
 end})
 
