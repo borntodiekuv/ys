@@ -56,14 +56,23 @@ Window:AddToggle({text = "Attack Nearest Enemy", flag = "toggle", state = false,
     cc = c
     while cc do task.wait()
         pcall(function()
-local args = {
-    [1] = getNPC1().Parent
-}
+                    local args = {
+                        [1] = getNPC1().Parent
+                    }
 
-game:GetService("ReplicatedStorage").Remotes.HeroRemotes.AttackEnemy:FireServer(unpack(args))
-end)
-end
+                    game:GetService("ReplicatedStorage").Remotes.HeroRemotes.AttackEnemy:FireServer(unpack(args))
+                    for _,v in pairs(game:GetService("Players"):GetDescendants()) do
+                        if  v.Name ==  game.Players.LocalPlayer and v.extrastats.Gamemode.Value == "Arena"  then
+                    repeat wait(300) 
+                        game:GetService("ReplicatedStorage").Remotes.HeroRemotes.AttackClick:InvokeServer()
+                    until v.extrastats.Gamemode.Value == "None"
+                end
+            end
+        end)
+    end
 end})
+
+
 
 Window:AddList({text = "Arena", flag = "list", values = Arena, callback = function(Arena)
     getgenv().arena = Arena
