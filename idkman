@@ -167,7 +167,7 @@ Window:Toggle("Tp to Arena Mobs", false, function(n)
         pcall(function()
 
             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = getNPC2().HumanoidRootPart.CFrame
-            
+
         end)
     end
 end)
@@ -204,6 +204,7 @@ Farm:Dropdown("Enemies", Enemyman, function(Enemyman)
             for _,v in pairs(game:GetService("Players"):GetChildren()) do
                 if  v.Name ==  "yes" and v.extrastats.Gamemode.Value == "None"  then
             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.workspace.Maps.Manhattan.EnemyFolder[enemyman].HumanoidRootPart.CFrame
+            wait(120)
             repeat wait() 
                 game:GetService("ReplicatedStorage").Remotes.HeroRemotes.AttackClick:InvokeServer()
             until v.extrastats.Gamemode.Value == "None"
@@ -240,6 +241,7 @@ end
             for _,v in pairs(game:GetService("Players"):GetChildren()) do
                 if  v.Name ==  "yes" and v.extrastats.Gamemode.Value == "None"  then
             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.workspace.Maps.Zandor.EnemyFolder[enemyzan].HumanoidRootPart.CFrame
+            wait(120)
             repeat wait() 
                 game:GetService("ReplicatedStorage").Remotes.HeroRemotes.AttackClick:InvokeServer()
             until v.extrastats.Gamemode.Value == "None"
@@ -276,6 +278,7 @@ Farm:Dropdown("Enemies", Enemyhop, function(Enemyhop)
             for _,v in pairs(game:GetService("Players"):GetChildren()) do
                 if  v.Name ==  "yes" and v.extrastats.Gamemode.Value == "None"  then
             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.workspace.Maps["Hop City"].EnemyFolder[enemyhop].HumanoidRootPart.CFrame
+            wait(120)
             repeat wait() 
                 game:GetService("ReplicatedStorage").Remotes.HeroRemotes.AttackClick:InvokeServer()
             until v.extrastats.Gamemode.Value == "None"
@@ -312,6 +315,7 @@ Farm:Dropdown("Enemies", Enemybat, function(Enemybat)
             for _,v in pairs(game:GetService("Players"):GetChildren()) do
                 if  v.Name ==  "yes" and v.extrastats.Gamemode.Value == "None"  then
             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.workspace.Maps["Gothic City"].EnemyFolder[enemybat].HumanoidRootPart.CFrame
+            wait(120)
             repeat wait() 
                 game:GetService("ReplicatedStorage").Remotes.HeroRemotes.AttackClick:InvokeServer()
             until v.extrastats.Gamemode.Value == "None"
@@ -349,7 +353,7 @@ end)
                 for _,v in pairs(game:GetService("Players"):GetChildren()) do
                     if  v.Name ==  "yes" and v.extrastats.Gamemode.Value == "None"  then
                 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.workspace.Maps["Kumar-Raj"].EnemyFolder[enemyku].HumanoidRootPart.CFrame
-
+                wait(120)
                 repeat wait() 
                     game:GetService("ReplicatedStorage").Remotes.HeroRemotes.AttackClick:InvokeServer()
                 until v.extrastats.Gamemode.Value == "None"
