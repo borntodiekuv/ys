@@ -57,16 +57,17 @@ end})
 Window:AddToggle({text = "Attack Nearest Enemy", flag = "toggle", state = false, callback = function(c)
     cc = c
     while cc do task.wait()
-        pcall(function()
+        
             for _,v in pairs(game:GetService("Players"):GetChildren()) do
                 if  v.Name ==  "yes" and v.extrastats.Gamemode.Value == "None"  then
+                    pcall(function()
                     local args = {
                         [1] = getNPC1().Parent
                     }
         
                     game:GetService("ReplicatedStorage").Remotes.HeroRemotes.AttackEnemy:FireServer(unpack(args))
 
-                    repeat wait(300) 
+                    repeat wait() 
                         game:GetService("ReplicatedStorage").Remotes.HeroRemotes.AttackClick:InvokeServer()
                     until v.extrastats.Gamemode.Value == "None"
                 end
