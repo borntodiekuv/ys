@@ -167,6 +167,7 @@ Window:Toggle("Tp to Arena Mobs", false, function(n)
         pcall(function()
 
             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = getNPC2().HumanoidRootPart.CFrame
+            
         end)
     end
 end)
@@ -200,8 +201,14 @@ Farm:Dropdown("Enemies", Enemyman, function(Enemyman)
     Farm:Toggle("Teleport to mob", false, function(z)         
         zz = z
         while zz do task.wait()
+            for _,v in pairs(game:GetService("Players"):GetChildren()) do
+                if  v.Name ==  "yes" and v.extrastats.Gamemode.Value == "None"  then
             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.workspace.Maps.Manhattan.EnemyFolder[enemyman].HumanoidRootPart.CFrame
-
+            repeat wait() 
+                game:GetService("ReplicatedStorage").Remotes.HeroRemotes.AttackClick:InvokeServer()
+            until v.extrastats.Gamemode.Value == "None"
+        end
+    end
     end
 end)
     Farm:Label("Zandor")
@@ -230,8 +237,14 @@ end
     Farm:Toggle("Teleport to mob", false, function(z)         
         zz = z
         while zz do task.wait()
+            for _,v in pairs(game:GetService("Players"):GetChildren()) do
+                if  v.Name ==  "yes" and v.extrastats.Gamemode.Value == "None"  then
             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.workspace.Maps.Zandor.EnemyFolder[enemyzan].HumanoidRootPart.CFrame
-
+            repeat wait() 
+                game:GetService("ReplicatedStorage").Remotes.HeroRemotes.AttackClick:InvokeServer()
+            until v.extrastats.Gamemode.Value == "None"
+        end
+    end
     end
 end)
     Farm:Label("Hop City")
@@ -260,8 +273,14 @@ Farm:Dropdown("Enemies", Enemyhop, function(Enemyhop)
     Farm:Toggle("Teleport to mob", false, function(z)         
         zz = z
         while zz do task.wait()
+            for _,v in pairs(game:GetService("Players"):GetChildren()) do
+                if  v.Name ==  "yes" and v.extrastats.Gamemode.Value == "None"  then
             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.workspace.Maps["Hop City"].EnemyFolder[enemyhop].HumanoidRootPart.CFrame
-
+            repeat wait() 
+                game:GetService("ReplicatedStorage").Remotes.HeroRemotes.AttackClick:InvokeServer()
+            until v.extrastats.Gamemode.Value == "None"
+        end
+    end
     end
 end)
     Farm:Label("Gothic City")
@@ -290,8 +309,14 @@ Farm:Dropdown("Enemies", Enemybat, function(Enemybat)
     Farm:Toggle("Teleport to mob", false, function(z)         
         zz = z
         while zz do task.wait()
+            for _,v in pairs(game:GetService("Players"):GetChildren()) do
+                if  v.Name ==  "yes" and v.extrastats.Gamemode.Value == "None"  then
             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.workspace.Maps["Gothic City"].EnemyFolder[enemybat].HumanoidRootPart.CFrame
-
+            repeat wait() 
+                game:GetService("ReplicatedStorage").Remotes.HeroRemotes.AttackClick:InvokeServer()
+            until v.extrastats.Gamemode.Value == "None"
+        end
+    end
     end
 end)
 
@@ -321,7 +346,15 @@ end)
         Farm:Toggle("Teleport to mob", false, function(z)         
             zz = z
             while zz do task.wait()
+                for _,v in pairs(game:GetService("Players"):GetChildren()) do
+                    if  v.Name ==  "yes" and v.extrastats.Gamemode.Value == "None"  then
                 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.workspace.Maps["Kumar-Raj"].EnemyFolder[enemyku].HumanoidRootPart.CFrame
+
+                repeat wait() 
+                    game:GetService("ReplicatedStorage").Remotes.HeroRemotes.AttackClick:InvokeServer()
+                until v.extrastats.Gamemode.Value == "None"
+            end
+        end
         end
     end)
 Eggs:Dropdown("Map", Arena, function(Arena)        
