@@ -1,14 +1,9 @@
-for i,v in next, game.CoreGui:GetChildren() do
-    if v.Name == "ScreenGui" and v.ImageButton then
-        v:Destroy()
-    end
-    end
+local UIlib = loadstring(game:HttpGet("https://raw.githubusercontent.com/borntodiekuv/HebrewHub/main/Loader"))()
 
-local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/sannin9000/Ui-Libraries/main/uwuware", true))()
-
-local Window = Library:CreateWindow"Multiverse Fighters Simulator"
-
-local Eggs = Library:CreateWindow"Eggs"
+   local Win = UIlib:Window("Hebrew Hub", "Multiverse Fighters")
+   local Window = Win:Tab("AutoFarm")
+   local Farm = Win:Tab("Specific Farming")
+   local Eggs = Win:Tab("Crystals")
 
 game.Players.LocalPlayer.Name = "yes"
 
@@ -22,6 +17,38 @@ for i,v in pairs(getconnections(game:GetService("Players").LocalPlayer.Idled)) d
     for i,v in pairs(game:GetService("Workspace").Maps:GetChildren()) do
         if v:IsA"Folder" and v.Parent.Name == "Maps" then
             table.insert(Arena,tostring(v))
+        end
+    end
+
+    local Enemyman = {}
+
+    for i,v in pairs(game:GetService("Workspace").Maps.Manhattan:GetDescendants()) do
+        if v:IsA"Model" and v.Parent.Name == "EnemyFolder" then
+            table.insert(Enemyman,tostring(v))
+        end
+    end
+
+    local Enemyzan = {}
+
+    for i,v in pairs(game:GetService("Workspace").Maps.Zandor:GetDescendants()) do
+        if v:IsA"Model" and v.Parent.Name == "EnemyFolder" then
+            table.insert(Enemyzan,tostring(v))
+        end
+    end
+
+    local Enemyhop = {}
+
+    for i,v in pairs(game:GetService("Workspace").Maps["Hop City"]:GetDescendants()) do
+        if v:IsA"Model" and v.Parent.Name == "EnemyFolder" then
+            table.insert(Enemyhop,tostring(v))
+        end
+    end
+
+    local Enemybat = {}
+
+    for i,v in pairs(game:GetService("Workspace").Maps["Gothic City"]:GetDescendants()) do
+        if v:IsA"Model" and v.Parent.Name == "EnemyFolder" then
+            table.insert(Enemybat,tostring(v))
         end
     end
 
@@ -43,18 +70,14 @@ local function getNPC1()
     return thing
 end
 
-
-
-
-
-Window:AddToggle({text = "Autoclick", flag = "toggle", state = false, callback = function(a)
+Window:Toggle("Auto Clicker", false, function(a) 
     aa = a
     while aa do task.wait()
 
         game:GetService("ReplicatedStorage").Remotes.HeroRemotes.AttackClick:InvokeServer()
     end
-end})
-Window:AddToggle({text = "Attack Nearest Enemy", flag = "toggle", state = false, callback = function(c)
+end)
+Window:Toggle("Attack Nearest Enemy", false, function(c) 
     cc = c
     while cc do task.wait()
         
@@ -74,11 +97,11 @@ Window:AddToggle({text = "Attack Nearest Enemy", flag = "toggle", state = false,
             end
         end
     end
-end})
+end)
 
-Window:AddList({text = "Arena", flag = "list", values = Arena, callback = function(Arena)
+Window:Dropdown("Arena", Arena, function(Arena)    
     getgenv().arena = Arena
-    end})
+    end)
 
 
 
@@ -96,7 +119,7 @@ Window:AddList({text = "Arena", flag = "list", values = Arena, callback = functi
         return thing
     end
 
-    Window:AddToggle({text = "Auto TP to Arena", flag = "toggle", state = false, callback = function(e)
+    Window:Toggle("TP to Arena", false, function(e)         
         ee = e
         while ee do task.wait()
             pcall(function()
@@ -114,10 +137,10 @@ Window:AddList({text = "Arena", flag = "list", values = Arena, callback = functi
                     end
                 end)
             end
-        end})
+        end)
 
-Window:AddToggle({text = "Auto Arena", flag = "toggle", state = false, callback = function(b)
-    bb = b
+        Window:Toggle("Auto Arena", false, function(b)     
+            bb = b
     while bb do task.wait()
         pcall(function()
         
@@ -130,9 +153,9 @@ Window:AddToggle({text = "Auto Arena", flag = "toggle", state = false, callback 
             game:GetService("ReplicatedStorage").Remotes.HeroRemotes.AttackEnemy:FireServer(unpack(args))
         end)
     end
-end})
+end)
 
-Window:AddToggle({text = "Safe Auto Arena", flag = "toggle", state = false, callback = function(b)
+Window:Toggle("Safe Auto Farm", false, function(b)     
     bb = b
     while bb do task.wait()
         pcall(function()
@@ -144,19 +167,114 @@ Window:AddToggle({text = "Safe Auto Arena", flag = "toggle", state = false, call
             game:GetService("ReplicatedStorage").Remotes.HeroRemotes.AttackEnemy:FireServer(unpack(args))
         end)
     end
-end})
+end)
+
+Farm:Label("Manhattan")
 
 
+Farm:Dropdown("Enemies", Enemyman, function(Enemyman)        
+    getgenv().enemyman = Enemyman
+        end)
+
+        Farm:Toggle("Auto Farm", false, function(m)         
+            mm = m
+            while mm do task.wait()
+                for _,v in pairs(game:GetService("Players"):GetChildren()) do
+                    if  v.Name ==  "yes" and v.extrastats.Gamemode.Value == "None"  then
+            local args = {
+                [1] = workspace.Maps.Manhattan.EnemyFolder:FindFirstChild(enemyman)
+            }
+
+            game:GetService("ReplicatedStorage").Remotes.HeroRemotes.AttackEnemy:FireServer(unpack(args))
+
+            repeat wait() 
+                game:GetService("ReplicatedStorage").Remotes.HeroRemotes.AttackClick:InvokeServer()
+            until v.extrastats.Gamemode.Value == "None"
+        end
+    end
+        end
+    end)
+
+    Farm:Label("Zandor")
+        
+Farm:Dropdown("Enemies", Enemyzan, function(Enemyzan)        
+    getgenv().enemyzan = Enemyzan
+        end)
+
+        Farm:Toggle("Auto Farm", false, function(m)         
+            mm = m
+            while mm do task.wait()
+                for _,v in pairs(game:GetService("Players"):GetChildren()) do
+                    if  v.Name ==  "yes" and v.extrastats.Gamemode.Value == "None"  then
+            local args = {
+                [1] = workspace.Maps.Zandor.EnemyFolder:FindFirstChild(enemyzan)
+            }
+
+            game:GetService("ReplicatedStorage").Remotes.HeroRemotes.AttackEnemy:FireServer(unpack(args))
+            repeat wait() 
+                game:GetService("ReplicatedStorage").Remotes.HeroRemotes.AttackClick:InvokeServer()
+            until v.extrastats.Gamemode.Value == "None"
+        end
+    end
+end
+    end)
+
+    Farm:Label("Hop City")
+        
+Farm:Dropdown("Enemies", Enemyhop, function(Enemyhop)        
+    getgenv().enemyhop = Enemyhop
+        end)
+
+        Farm:Toggle("Auto Farm", false, function(m)         
+            mm = m
+            while mm do task.wait()
+                for _,v in pairs(game:GetService("Players"):GetChildren()) do
+                    if  v.Name ==  "yes" and v.extrastats.Gamemode.Value == "None"  then
+            local args = {
+                [1] = workspace.Maps["Hop City"].EnemyFolder:FindFirstChild(enemyhop)
+            }
+
+            game:GetService("ReplicatedStorage").Remotes.HeroRemotes.AttackEnemy:FireServer(unpack(args))
+            repeat wait() 
+                game:GetService("ReplicatedStorage").Remotes.HeroRemotes.AttackClick:InvokeServer()
+            until v.extrastats.Gamemode.Value == "None"
+        end
+    end
+        end
+    end)
+
+    Farm:Label("Gothic City")
+        
+Farm:Dropdown("Enemies", Enemybat, function(Enemybat)        
+    getgenv().enemybat = Enemybat
+        end)
+
+        Farm:Toggle("Auto Farm", false, function(m)         
+            mm = m
+            while mm do task.wait()
+                for _,v in pairs(game:GetService("Players"):GetChildren()) do
+                    if  v.Name ==  "yes" and v.extrastats.Gamemode.Value == "None"  then
+            local args = {
+                [1] = workspace.Maps["Gothic City"].EnemyFolder:FindFirstChild(enemybat)
+            }
+
+            game:GetService("ReplicatedStorage").Remotes.HeroRemotes.AttackEnemy:FireServer(unpack(args))
+            repeat wait() 
+                game:GetService("ReplicatedStorage").Remotes.HeroRemotes.AttackClick:InvokeServer()
+            until v.extrastats.Gamemode.Value == "None"
+        end
+    end
+        end
+    end)
 
 
+Eggs:Dropdown("Map", Arena, function(Arena)        
+    getgenv().eggs = Arena
+        end)
 
-    Eggs:AddList({text = "Maps", flag = "list", values = Arena, callback = function(Arena)
-        getgenv().eggs = Arena
-        end})
 
-
-    Eggs:AddToggle({text = "Auto Open Crystals", flag = "toggle", state = false, callback = function(f)
-        ff = f
+        Eggs:Toggle("Auto Hatch", false, function(f)         
+            ff = f
         while ff do task.wait(.5)
     
                 local args = {
@@ -165,9 +283,8 @@ end})
                 
                 game:GetService("ReplicatedStorage").Remotes.InventoryRemotes.HeroRoll:InvokeServer(unpack(args))
         end
-    end})
+    end)
 
 
-Library:Init()
 
 
