@@ -147,23 +147,7 @@ Window:Dropdown("Arena", Arena, function(Arena)
             end
         end)
 
-        Window:Toggle("Auto Arena", false, function(b)     
-            bb = b
-    while bb do task.wait()
-        pcall(function()
-        
-            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = getNPC2().HumanoidRootPart.CFrame
-
-            local args = {
-            [1] = getNPC2()
-            }
-
-            game:GetService("ReplicatedStorage").Remotes.HeroRemotes.AttackEnemy:FireServer(unpack(args))
-        end)
-    end
-end)
-
-Window:Toggle("Safe Auto Farm", false, function(b)     
+Window:Toggle(" Auto Arena", false, function(b)     
     bb = b
     while bb do task.wait()
         pcall(function()
@@ -176,6 +160,17 @@ Window:Toggle("Safe Auto Farm", false, function(b)
         end)
     end
 end)
+
+Window:Toggle("Tp to Arena Mobs", false, function(n)     
+    nn = n
+    while nn do task.wait()
+        pcall(function()
+
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = getNPC2().HumanoidRootPart.CFrame
+        end)
+    end
+end)
+
 
 Farm:Label("Manhattan")
 
@@ -202,7 +197,14 @@ Farm:Dropdown("Enemies", Enemyman, function(Enemyman)
     end
         end
     end)
+    Farm:Toggle("Teleport to mob", false, function(z)         
+        zz = z
+        while zz do task.wait()
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.workspace.Maps.Manhattan.EnemyFolder[enemyman].HumanoidRootPart.CFrame
+            wait(15)
 
+    end
+end)
     Farm:Label("Zandor")
         
 Farm:Dropdown("Enemies", Enemyzan, function(Enemyzan)        
@@ -226,7 +228,14 @@ Farm:Dropdown("Enemies", Enemyzan, function(Enemyzan)
     end
 end
     end)
+    Farm:Toggle("Teleport to mob", false, function(z)         
+        zz = z
+        while zz do task.wait()
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.workspace.Maps.Zandor.EnemyFolder[enemyzan].HumanoidRootPart.CFrame
+            wait(15)
 
+    end
+end)
     Farm:Label("Hop City")
         
 Farm:Dropdown("Enemies", Enemyhop, function(Enemyhop)        
@@ -250,7 +259,14 @@ Farm:Dropdown("Enemies", Enemyhop, function(Enemyhop)
     end
         end
     end)
+    Farm:Toggle("Teleport to mob", false, function(z)         
+        zz = z
+        while zz do task.wait()
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.workspace.Maps["Hop City"].EnemyFolder[enemyhop].HumanoidRootPart.CFrame
+            wait(15)
 
+    end
+end)
     Farm:Label("Gothic City")
         
 Farm:Dropdown("Enemies", Enemybat, function(Enemybat)        
@@ -274,7 +290,14 @@ Farm:Dropdown("Enemies", Enemybat, function(Enemybat)
     end
         end
     end)
+    Farm:Toggle("Teleport to mob", false, function(z)         
+        zz = z
+        while zz do task.wait()
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.workspace.Maps["Gothic City"].EnemyFolder[enemybat].HumanoidRootPart.CFrame
+            wait(15)
 
+    end
+end)
 
     Farm:Label("Kumar-Raj")
         
@@ -299,7 +322,13 @@ Farm:Dropdown("Enemies", Enemybat, function(Enemybat)
         end
             end
         end)
-
+        Farm:Toggle("Teleport to mob", false, function(z)         
+            zz = z
+            while zz do task.wait()
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.workspace.Maps["Kumar-Raj"].EnemyFolder[enemyku].HumanoidRootPart.CFrame
+    wait(15)
+        end
+    end)
 Eggs:Dropdown("Map", Arena, function(Arena)        
     getgenv().eggs = Arena
         end)
