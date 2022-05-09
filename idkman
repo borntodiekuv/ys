@@ -12,6 +12,8 @@ for i,v in pairs(getconnections(game:GetService("Players").LocalPlayer.Idled)) d
     v:Disable()
     end
 
+-- Game Data
+
     local Arena = {}
 
     for i,v in pairs(game:GetService("Workspace").Maps:GetChildren()) do
@@ -208,6 +210,7 @@ Farm:Dropdown("Enemies", Enemyman, function(Enemyman)
             repeat wait() 
                 game:GetService("ReplicatedStorage").Remotes.HeroRemotes.AttackClick:InvokeServer()
             until v.extrastats.Gamemode.Value == "None"
+            wait(2)
         end
     end
     end
@@ -245,6 +248,7 @@ end
             repeat wait() 
                 game:GetService("ReplicatedStorage").Remotes.HeroRemotes.AttackClick:InvokeServer()
             until v.extrastats.Gamemode.Value == "None"
+            wait(2)
         end
     end
     end
@@ -282,6 +286,7 @@ Farm:Dropdown("Enemies", Enemyhop, function(Enemyhop)
             repeat wait() 
                 game:GetService("ReplicatedStorage").Remotes.HeroRemotes.AttackClick:InvokeServer()
             until v.extrastats.Gamemode.Value == "None"
+            wait(2)
         end
     end
     end
@@ -319,6 +324,7 @@ Farm:Dropdown("Enemies", Enemybat, function(Enemybat)
             repeat wait() 
                 game:GetService("ReplicatedStorage").Remotes.HeroRemotes.AttackClick:InvokeServer()
             until v.extrastats.Gamemode.Value == "None"
+            wait(2)
         end
     end
     end
@@ -357,6 +363,7 @@ end)
                 repeat wait() 
                     game:GetService("ReplicatedStorage").Remotes.HeroRemotes.AttackClick:InvokeServer()
                 until v.extrastats.Gamemode.Value == "None"
+                wait(2)
             end
         end
         end
