@@ -385,6 +385,18 @@ Eggs:Dropdown("Map", Arena, function(Arena)
         end
     end)
 
+    Eggs:Toggle("Auto Hatch Ticket Crystal", false, function(f)         
+        ff = f
+    while ff do task.wait(.5)
+
+        local args = {
+            [1] = "Robux Crystal"
+        }
+        
+        game:GetService("ReplicatedStorage").Remotes.InventoryRemotes.PurchaseArenaItem:InvokeServer(unpack(args))
+    end
+end)
+
 
 
 
