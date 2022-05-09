@@ -4,6 +4,7 @@ local UIlib = loadstring(game:HttpGet("https://raw.githubusercontent.com/borntod
    local Window = Win:Tab("AutoFarm")
    local Farm = Win:Tab("Specific Farming")
    local Eggs = Win:Tab("Crystals")
+   local Oth = Win:Tab("Other")
 
 game.Players.LocalPlayer.Name = "yes"
 
@@ -400,3 +401,17 @@ end)
 
 
 
+Oth:Dropdown("Map", Arena, function(Arena)        
+    getgenv().tp = Arena
+        end)
+
+Oth:Button("Teleport to ", function()
+local args = {
+    [1] = tp
+}
+
+game:GetService("ReplicatedStorage").Remotes.LocationRemotes.ChangeLocation:InvokeServer(unpack(args))
+
+game.Players.LocalPlayer.Character.Humanoid:Destroy()
+
+end)
