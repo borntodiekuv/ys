@@ -1,6 +1,6 @@
-local UIlib = loadstring(game:HttpGet("https://raw.githubusercontent.com/borntodiekuv/HebrewHub/main/Loader"))()
+local UIlib = loadstring(game:HttpGet("https://raw.githubusercontent.com/borntodiekuv/KeybrewHub/main/Loader"))()
 
-   local Win = UIlib:Window("Hebrew Hub", "Multiverse Fighters")
+   local Win = UIlib:Window("Keybrew Hub", "Multiverse Fighters")
    local Window = Win:Tab("AutoFarm")
    local Farm = Win:Tab("Specific Farming")
    local Eggs = Win:Tab("Crystals")
