@@ -168,8 +168,10 @@ Window:Toggle("Tp to Arena Mobs", false, function(n)
     nn = n
     while nn do task.wait()
         pcall(function()
-
-            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = getNPC2().HumanoidRootPart.CFrame
+            local Time = 0.5
+            local tween =  game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(Time), {CFrame = getNPC2().HumanoidRootPart.CFrame})                                       
+            tween:Play()
+            tween.Completed:Wait(E)
 
         end)
     end
@@ -206,7 +208,11 @@ Farm:Dropdown("Enemies", Enemyman, function(Enemyman)
         while zz do task.wait()
             for _,v in pairs(game:GetService("Players"):GetChildren()) do
                 if  v.Name ==  "yes" and v.extrastats.Gamemode.Value == "None"  then
-            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.workspace.Maps.Manhattan.EnemyFolder[enemyman].HumanoidRootPart.CFrame
+                    local Time = 0.5
+                    local tween =  game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(Time), {CFrame = game.workspace.Maps.Manhattan.EnemyFolder[enemyman].HumanoidRootPart.CFrame})                                       
+                    tween:Play()
+                    tween.Completed:Wait(E)
+                    wait(120)    
             wait(120)
             repeat wait() 
                 game:GetService("ReplicatedStorage").Remotes.HeroRemotes.AttackClick:InvokeServer()
@@ -244,8 +250,11 @@ end
         while zz do task.wait()
             for _,v in pairs(game:GetService("Players"):GetChildren()) do
                 if  v.Name ==  "yes" and v.extrastats.Gamemode.Value == "None"  then
-            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.workspace.Maps.Zandor.EnemyFolder[enemyzan].HumanoidRootPart.CFrame
-            wait(120)
+                    local Time = 0.5
+                    local tween =  game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(Time), {CFrame = game.workspace.Maps.Zandor.EnemyFolder[enemyzan].HumanoidRootPart.CFrame})                                       
+                    tween:Play()
+                    tween.Completed:Wait(E)
+                    wait(120)    
             repeat wait() 
                 game:GetService("ReplicatedStorage").Remotes.HeroRemotes.AttackClick:InvokeServer()
             until v.extrastats.Gamemode.Value == "None"
@@ -282,8 +291,11 @@ Farm:Dropdown("Enemies", Enemyhop, function(Enemyhop)
         while zz do task.wait()
             for _,v in pairs(game:GetService("Players"):GetChildren()) do
                 if  v.Name ==  "yes" and v.extrastats.Gamemode.Value == "None"  then
-            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.workspace.Maps["Hop City"].EnemyFolder[enemyhop].HumanoidRootPart.CFrame
-            wait(120)
+                    local Time = 0.5
+                    local tween =  game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(Time), {CFrame = game.workspace.Maps["Hop City"].EnemyFolder[enemyhop].HumanoidRootPart.CFrame})                                       
+                    tween:Play()
+                    tween.Completed:Wait(E)
+                    wait(120)    
             repeat wait() 
                 game:GetService("ReplicatedStorage").Remotes.HeroRemotes.AttackClick:InvokeServer()
             until v.extrastats.Gamemode.Value == "None"
@@ -319,17 +331,18 @@ Farm:Dropdown("Enemies", Enemybat, function(Enemybat)
         zz = z
         while zz do task.wait()
             for _,v in pairs(game:GetService("Players"):GetChildren()) do
-                if  v.Name ==  "yes" and v.extrastats.Gamemode.Value == "None"  then
-            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.workspace.Maps["Gothic City"].EnemyFolder[enemybat].HumanoidRootPart.CFrame
-            wait(120)
+                local Time = 0.5
+                local tween =  game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(Time), {CFrame = game.workspace.Maps["Gothic City"].EnemyFolder[enemybat].HumanoidRootPart.CFrame})                                       
+                tween:Play()
+                tween.Completed:Wait(E)
+                wait(120)    
             repeat wait() 
                 game:GetService("ReplicatedStorage").Remotes.HeroRemotes.AttackClick:InvokeServer()
             until v.extrastats.Gamemode.Value == "None"
             wait(2)
         end
     end
-    end
-end)
+    end)
 
     Farm:Label("Kumar-Raj")
         
@@ -359,8 +372,11 @@ end)
             while zz do task.wait()
                 for _,v in pairs(game:GetService("Players"):GetChildren()) do
                     if  v.Name ==  "yes" and v.extrastats.Gamemode.Value == "None"  then
-                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.workspace.Maps["Kumar-Raj"].EnemyFolder[enemyku].HumanoidRootPart.CFrame
-                wait(120)
+                        local Time = 0.5
+                        local tween =  game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(Time), {CFrame = game.workspace.Maps["Kumar-Raj"].EnemyFolder[enemyku].HumanoidRootPart.CFrame})                                       
+                        tween:Play()
+                        tween.Completed:Wait(E)
+                        wait(120)      
                 repeat wait() 
                     game:GetService("ReplicatedStorage").Remotes.HeroRemotes.AttackClick:InvokeServer()
                 until v.extrastats.Gamemode.Value == "None"
