@@ -395,6 +395,7 @@ Eggs:Dropdown("Map", Arena, function(Arena)
         }
         
         game:GetService("ReplicatedStorage").Remotes.InventoryRemotes.PurchaseArenaItem:InvokeServer(unpack(args))
+        wait(4)
     end
 end)
 
