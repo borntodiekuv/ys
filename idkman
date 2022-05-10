@@ -388,14 +388,17 @@ Eggs:Dropdown("Map", Arena, function(Arena)
 
     Eggs:Toggle("Auto Hatch Ticket Crystal", false, function(f)         
         ff = f
-    while ff do task.wait(.5)
-
+    while ff do task.wait()
+        for _,v in pairs(game:GetService("Players").yes.PlayerGui.CrystalShop:GetChildren()) do
+            if  v.Name ==  "Animating" and v.Value == false  then
+            game:GetService("ReplicatedStorage").Remotes.HeroRemotes.AttackClick:InvokeServer()
         local args = {
             [1] = "Robux Crystal"
         }
         
         game:GetService("ReplicatedStorage").Remotes.InventoryRemotes.PurchaseArenaItem:InvokeServer(unpack(args))
-        wait(7)
+    end
+end
     end
 end)
 
