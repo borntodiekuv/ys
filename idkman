@@ -70,7 +70,6 @@ local function getNPC1()
     local dist, thing = math.huge
     for _,v in pairs(game:GetService("Workspace").Maps:GetDescendants()) do
         if v.Name == "HumanoidRootPart" and  v:IsA"Part" then
-            print(success)
             local mag = (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.Position).magnitude
             if mag < dist then 
                 dist = mag 
@@ -114,12 +113,10 @@ Window:Dropdown("Arena", Arena, function(Arena)
     getgenv().arena = Arena
     end)
 
-
-
     local function getNPC2()
         local dist, thing = math.huge
         for _,v in pairs(game:GetService("Workspace").Arenas[arena]:GetDescendants()) do
-            if  v.Parent.Name == "ArenaEnemies" and v.Health.Value > 0  then
+            if  v.Parent.Name == "ArenaEnemies" and v.Dead.Value == false  then
                 local mag = (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.HumanoidRootPart.Position).magnitude
                 if mag < dist then 
                     dist = mag 
@@ -149,6 +146,8 @@ Window:Dropdown("Arena", Arena, function(Arena)
                 end)
             end
         end)
+
+
 
 Window:Toggle(" Auto Arena", false, function(b)     
     bb = b
