@@ -1,179 +1,192 @@
+local Keylib = loadstring(game:HttpGet("https://raw.githubusercontent.com/borntodiekuv/KeybrewHub/main/Loader"))()
+
+local Key1 = Keylib:Window("Keybrew Hub", "Multiverse Fighters")
+local Key2 = Key1:Tab("Main")
+
+
+Key2:Label(game.Players.LocalPlayer.Name .." to get a key join the Discord.")
+
+Key2:Textbox("Key Here", "Here!", function(v)
+    if v == "0gzY_DweVwspdM1" then
+        game:GetService("CoreGui").woof.MainFrame.Visible = false
+
+
 local UIlib = loadstring(game:HttpGet("https://raw.githubusercontent.com/borntodiekuv/KeybrewHub/main/Loader"))()
 
-   local Win = UIlib:Window("Keybrew Hub", "Multiverse Fighters")
-   local Window = Win:Tab("AutoFarm")
-   local Farm = Win:Tab("Specific Farming")
-   local Eggs = Win:Tab("Crystals")
-   local Oth = Win:Tab("Other")
+local Win = UIlib:Window("Keybrew Hub", "Multiverse Fighters")
+local Window = Win:Tab("AutoFarm")
+local Farm = Win:Tab("Specific Farming")
+local Eggs = Win:Tab("Crystals")
+local Oth = Win:Tab("Other")
 
 game.Players.LocalPlayer.Name = "yes"
 
 
 for i,v in pairs(getconnections(game:GetService("Players").LocalPlayer.Idled)) do
-    v:Disable()
-    end
+ v:Disable()
+ end
 
 -- Game Data
 
-    local Arena = {}
+ local Arena = {}
 
-    for i,v in pairs(game:GetService("Workspace").Maps:GetChildren()) do
-        if v:IsA"Folder" and v.Parent.Name == "Maps" then
-            table.insert(Arena,tostring(v))
-        end
-    end
+ for i,v in pairs(game:GetService("Workspace").Maps:GetChildren()) do
+     if v:IsA"Folder" and v.Parent.Name == "Maps" then
+         table.insert(Arena,tostring(v))
+     end
+ end
 
-    local Enemyman = {}
+ local Enemyman = {}
 
-    for i,v in pairs(game:GetService("Workspace").Maps.Manhattan:GetDescendants()) do
-        if v:IsA"Model" and v.Parent.Name == "EnemyFolder" then
-            table.insert(Enemyman,tostring(v))
-        end
-    end
+ for i,v in pairs(game:GetService("Workspace").Maps.Manhattan:GetDescendants()) do
+     if v:IsA"Model" and v.Parent.Name == "EnemyFolder" then
+         table.insert(Enemyman,tostring(v))
+     end
+ end
 
-    local Enemyzan = {}
+ local Enemyzan = {}
 
-    for i,v in pairs(game:GetService("Workspace").Maps.Zandor:GetDescendants()) do
-        if v:IsA"Model" and v.Parent.Name == "EnemyFolder" then
-            table.insert(Enemyzan,tostring(v))
-        end
-    end
+ for i,v in pairs(game:GetService("Workspace").Maps.Zandor:GetDescendants()) do
+     if v:IsA"Model" and v.Parent.Name == "EnemyFolder" then
+         table.insert(Enemyzan,tostring(v))
+     end
+ end
 
-    local Enemyhop = {}
+ local Enemyhop = {}
 
-    for i,v in pairs(game:GetService("Workspace").Maps["Hop City"]:GetDescendants()) do
-        if v:IsA"Model" and v.Parent.Name == "EnemyFolder" then
-            table.insert(Enemyhop,tostring(v))
-        end
-    end
+ for i,v in pairs(game:GetService("Workspace").Maps["Hop City"]:GetDescendants()) do
+     if v:IsA"Model" and v.Parent.Name == "EnemyFolder" then
+         table.insert(Enemyhop,tostring(v))
+     end
+ end
 
-    local Enemybat = {}
+ local Enemybat = {}
 
-    for i,v in pairs(game:GetService("Workspace").Maps["Gothic City"]:GetDescendants()) do
-        if v:IsA"Model" and v.Parent.Name == "EnemyFolder" then
-            table.insert(Enemybat,tostring(v))
-        end
-    end
+ for i,v in pairs(game:GetService("Workspace").Maps["Gothic City"]:GetDescendants()) do
+     if v:IsA"Model" and v.Parent.Name == "EnemyFolder" then
+         table.insert(Enemybat,tostring(v))
+     end
+ end
 
 
-    local Enemyku = {}
+ local Enemyku = {}
 
-    for i,v in pairs(game:GetService("Workspace").Maps["Kumar-Raj"]:GetDescendants()) do
-        if v:IsA"Model" and v.Parent.Name == "EnemyFolder" then
-            table.insert(Enemyku,tostring(v))
-        end
-    end
+ for i,v in pairs(game:GetService("Workspace").Maps["Kumar-Raj"]:GetDescendants()) do
+     if v:IsA"Model" and v.Parent.Name == "EnemyFolder" then
+         table.insert(Enemyku,tostring(v))
+     end
+ end
 
 
 
 local function getNPC1()
-    local dist, thing = math.huge
-    for _,v in pairs(game:GetService("Workspace").Maps:GetDescendants()) do
-        if v.Name == "HumanoidRootPart" and  v:IsA"Part" then
-            local mag = (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.Position).magnitude
-            if mag < dist then 
-                dist = mag 
-                thing = v 
-            end
-        end
-    end
-    return thing
+ local dist, thing = math.huge
+ for _,v in pairs(game:GetService("Workspace").Maps:GetDescendants()) do
+     if v.Name == "HumanoidRootPart" and  v:IsA"Part" then
+         local mag = (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.Position).magnitude
+         if mag < dist then 
+             dist = mag 
+             thing = v 
+         end
+     end
+ end
+ return thing
 end
 
 Window:Toggle("Auto Clicker", false, function(a) 
-    aa = a
-    while aa do task.wait()
+ aa = a
+ while aa do task.wait()
 
-        game:GetService("ReplicatedStorage").Remotes.HeroRemotes.AttackClick:InvokeServer()
-    end
+     game:GetService("ReplicatedStorage").Remotes.HeroRemotes.AttackClick:InvokeServer()
+ end
 end)
 Window:Toggle("Attack Nearest Enemy", false, function(c) 
-    cc = c
-    while cc do task.wait()
-        
-            for _,v in pairs(game:GetService("Players"):GetChildren()) do
-                if  v.Name ==  "yes" and v.extrastats.Gamemode.Value == "None"  then
-                    pcall(function()
-                    local args = {
-                        [1] = getNPC1().Parent
-                    }
-        
-                    game:GetService("ReplicatedStorage").Remotes.HeroRemotes.AttackEnemy:FireServer(unpack(args))
+ cc = c
+ while cc do task.wait()
+     
+         for _,v in pairs(game:GetService("Players"):GetChildren()) do
+             if  v.Name ==  "yes" and v.extrastats.Gamemode.Value == "None"  then
+                 pcall(function()
+                 local args = {
+                     [1] = getNPC1().Parent
+                 }
+     
+                 game:GetService("ReplicatedStorage").Remotes.HeroRemotes.AttackEnemy:FireServer(unpack(args))
 
-                    repeat wait() 
-                        game:GetService("ReplicatedStorage").Remotes.HeroRemotes.AttackClick:InvokeServer()
-                    until v.extrastats.Gamemode.Value == "None"
-                end)
-            end
-        end
-    end
+                 repeat wait() 
+                     game:GetService("ReplicatedStorage").Remotes.HeroRemotes.AttackClick:InvokeServer()
+                 until v.extrastats.Gamemode.Value == "None"
+             end)
+         end
+     end
+ end
 end)
 
 Window:Dropdown("Arena", Arena, function(Arena)    
-    getgenv().arena = Arena
-    end)
+ getgenv().arena = Arena
+ end)
 
-    local function getNPC2()
-        local dist, thing = math.huge
-        for _,v in pairs(game:GetService("Workspace").Arenas[arena]:GetDescendants()) do
-            if  v.Parent.Name == "ArenaEnemies" and v.Dead.Value == false  then
-                local mag = (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.HumanoidRootPart.Position).magnitude
-                if mag < dist then 
-                    dist = mag 
-                    thing = v 
-                end
-            end
-        end
-        return thing
-    end
+ local function getNPC2()
+     local dist, thing = math.huge
+     for _,v in pairs(game:GetService("Workspace").Arenas[arena]:GetDescendants()) do
+         if  v.Parent.Name == "ArenaEnemies" and v.Dead.Value == false  then
+             local mag = (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.HumanoidRootPart.Position).magnitude
+             if mag < dist then 
+                 dist = mag 
+                 thing = v 
+             end
+         end
+     end
+     return thing
+ end
 
-    Window:Toggle("TP to Arena", false, function(e)         
-        ee = e
-        while ee do task.wait()
-            pcall(function()
-                        for _,v in pairs(game:GetService("Workspace").Arenas:GetDescendants()) do
-                            if  v.Name == "ArenaOpen" and v.Value == true  then
-                                
-                            game:GetService("ReplicatedStorage").Remotes.ArenaRemotes.JoinArena:InvokeServer()
-                            game.Players.LocalPlayer.Character.Humanoid:Destroy()
-                            repeat wait() 
-                                game:GetService("ReplicatedStorage").Remotes.HeroRemotes.AttackClick:InvokeServer()
-                            until v.Value == false
+ Window:Toggle("TP to Arena", false, function(e)         
+     ee = e
+     while ee do task.wait()
+         pcall(function()
+                     for _,v in pairs(game:GetService("Workspace").Arenas:GetDescendants()) do
+                         if  v.Name == "ArenaOpen" and v.Value == true  then
+                             
+                         game:GetService("ReplicatedStorage").Remotes.ArenaRemotes.JoinArena:InvokeServer()
+                         game.Players.LocalPlayer.Character.Humanoid:Destroy()
+                         repeat wait() 
+                             game:GetService("ReplicatedStorage").Remotes.HeroRemotes.AttackClick:InvokeServer()
+                         until v.Value == false
 
-                            
-                        end
-                    end
-                end)
-            end
-        end)
+                         
+                     end
+                 end
+             end)
+         end
+     end)
 
 
 
 Window:Toggle(" Auto Arena", false, function(b)     
-    bb = b
-    while bb do task.wait()
-        pcall(function()
+ bb = b
+ while bb do task.wait()
+     pcall(function()
 
-            local args = {
-            [1] = getNPC2()
-            }
+         local args = {
+         [1] = getNPC2()
+         }
 
-            game:GetService("ReplicatedStorage").Remotes.HeroRemotes.AttackEnemy:FireServer(unpack(args))
-        end)
-    end
+         game:GetService("ReplicatedStorage").Remotes.HeroRemotes.AttackEnemy:FireServer(unpack(args))
+     end)
+ end
 end)
 
 Window:Toggle("Tp to Arena Mobs", false, function(n)     
-    nn = n
-    while nn do task.wait()
-        pcall(function()
-            local Time = 0.5
-            local tween =  game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(Time), {CFrame = getNPC2().HumanoidRootPart.CFrame})                                       
-            tween:Play()
-            tween.Completed:Wait(E)
+ nn = n
+ while nn do task.wait()
+     pcall(function()
+         local Time = 0.5
+         local tween =  game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(Time), {CFrame = getNPC2().HumanoidRootPart.CFrame})                                       
+         tween:Play()
+         tween.Completed:Wait(E)
 
-        end)
-    end
+     end)
+ end
 end)
 
 
@@ -181,252 +194,252 @@ Farm:Label("Manhattan")
 
 
 Farm:Dropdown("Enemies", Enemyman, function(Enemyman)        
-    getgenv().enemyman = Enemyman
-        end)
+ getgenv().enemyman = Enemyman
+     end)
 
-        Farm:Toggle("Auto Farm", false, function(m)         
-            mm = m
-            while mm do task.wait()
-                for _,v in pairs(game:GetService("Players"):GetChildren()) do
-                    if  v.Name ==  "yes" and v.extrastats.Gamemode.Value == "None"  then
-            local args = {
-                [1] = workspace.Maps.Manhattan.EnemyFolder:FindFirstChild(enemyman)
-            }
+     Farm:Toggle("Auto Farm", false, function(m)         
+         mm = m
+         while mm do task.wait()
+             for _,v in pairs(game:GetService("Players"):GetChildren()) do
+                 if  v.Name ==  "yes" and v.extrastats.Gamemode.Value == "None"  then
+         local args = {
+             [1] = workspace.Maps.Manhattan.EnemyFolder:FindFirstChild(enemyman)
+         }
 
-            game:GetService("ReplicatedStorage").Remotes.HeroRemotes.AttackEnemy:FireServer(unpack(args))
+         game:GetService("ReplicatedStorage").Remotes.HeroRemotes.AttackEnemy:FireServer(unpack(args))
 
-            repeat wait() 
-                game:GetService("ReplicatedStorage").Remotes.HeroRemotes.AttackClick:InvokeServer()
-            until v.extrastats.Gamemode.Value == "None"
-        end
-    end
-        end
-    end)
-    Farm:Toggle("Teleport to mob", false, function(z)         
-        zz = z
-        while zz do task.wait()
-            for _,v in pairs(game:GetService("Players"):GetChildren()) do
-                if  v.Name ==  "yes" and v.extrastats.Gamemode.Value == "None"  then
-                    local Time = 0.5
-                    local tween =  game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(Time), {CFrame = game.workspace.Maps.Manhattan.EnemyFolder[enemyman].HumanoidRootPart.CFrame})                                       
-                    tween:Play()
-                    tween.Completed:Wait(E)
-                    wait(120)    
-            wait(120)
-            repeat wait() 
-                game:GetService("ReplicatedStorage").Remotes.HeroRemotes.AttackClick:InvokeServer()
-            until v.extrastats.Gamemode.Value == "None"
-            wait(2)
-        end
-    end
-    end
+         repeat wait() 
+             game:GetService("ReplicatedStorage").Remotes.HeroRemotes.AttackClick:InvokeServer()
+         until v.extrastats.Gamemode.Value == "None"
+     end
+ end
+     end
+ end)
+ Farm:Toggle("Teleport to mob", false, function(z)         
+     zz = z
+     while zz do task.wait()
+         for _,v in pairs(game:GetService("Players"):GetChildren()) do
+             if  v.Name ==  "yes" and v.extrastats.Gamemode.Value == "None"  then
+                 local Time = 0.5
+                 local tween =  game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(Time), {CFrame = game.workspace.Maps.Manhattan.EnemyFolder[enemyman].HumanoidRootPart.CFrame})                                       
+                 tween:Play()
+                 tween.Completed:Wait(E)
+                 wait(120)    
+         wait(120)
+         repeat wait() 
+             game:GetService("ReplicatedStorage").Remotes.HeroRemotes.AttackClick:InvokeServer()
+         until v.extrastats.Gamemode.Value == "None"
+         wait(2)
+     end
+ end
+ end
 end)
-    Farm:Label("Zandor")
-        
+ Farm:Label("Zandor")
+     
 Farm:Dropdown("Enemies", Enemyzan, function(Enemyzan)        
-    getgenv().enemyzan = Enemyzan
-        end)
+ getgenv().enemyzan = Enemyzan
+     end)
 
-        Farm:Toggle("Auto Farm", false, function(m)         
-            mm = m
-            while mm do task.wait()
-                for _,v in pairs(game:GetService("Players"):GetChildren()) do
-                    if  v.Name ==  "yes" and v.extrastats.Gamemode.Value == "None"  then
-            local args = {
-                [1] = workspace.Maps.Zandor.EnemyFolder:FindFirstChild(enemyzan)
-            }
+     Farm:Toggle("Auto Farm", false, function(m)         
+         mm = m
+         while mm do task.wait()
+             for _,v in pairs(game:GetService("Players"):GetChildren()) do
+                 if  v.Name ==  "yes" and v.extrastats.Gamemode.Value == "None"  then
+         local args = {
+             [1] = workspace.Maps.Zandor.EnemyFolder:FindFirstChild(enemyzan)
+         }
 
-            game:GetService("ReplicatedStorage").Remotes.HeroRemotes.AttackEnemy:FireServer(unpack(args))
-            repeat wait() 
-                game:GetService("ReplicatedStorage").Remotes.HeroRemotes.AttackClick:InvokeServer()
-            until v.extrastats.Gamemode.Value == "None"
-        end
-    end
+         game:GetService("ReplicatedStorage").Remotes.HeroRemotes.AttackEnemy:FireServer(unpack(args))
+         repeat wait() 
+             game:GetService("ReplicatedStorage").Remotes.HeroRemotes.AttackClick:InvokeServer()
+         until v.extrastats.Gamemode.Value == "None"
+     end
+ end
 end
-    end)
-    Farm:Toggle("Teleport to mob", false, function(z)         
-        zz = z
-        while zz do task.wait()
-            for _,v in pairs(game:GetService("Players"):GetChildren()) do
-                if  v.Name ==  "yes" and v.extrastats.Gamemode.Value == "None"  then
-                    local Time = 0.5
-                    local tween =  game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(Time), {CFrame = game.workspace.Maps.Zandor.EnemyFolder[enemyzan].HumanoidRootPart.CFrame})                                       
-                    tween:Play()
-                    tween.Completed:Wait(E)
-                    wait(120)    
-            repeat wait() 
-                game:GetService("ReplicatedStorage").Remotes.HeroRemotes.AttackClick:InvokeServer()
-            until v.extrastats.Gamemode.Value == "None"
-            wait(2)
-        end
-    end
-    end
+ end)
+ Farm:Toggle("Teleport to mob", false, function(z)         
+     zz = z
+     while zz do task.wait()
+         for _,v in pairs(game:GetService("Players"):GetChildren()) do
+             if  v.Name ==  "yes" and v.extrastats.Gamemode.Value == "None"  then
+                 local Time = 0.5
+                 local tween =  game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(Time), {CFrame = game.workspace.Maps.Zandor.EnemyFolder[enemyzan].HumanoidRootPart.CFrame})                                       
+                 tween:Play()
+                 tween.Completed:Wait(E)
+                 wait(120)    
+         repeat wait() 
+             game:GetService("ReplicatedStorage").Remotes.HeroRemotes.AttackClick:InvokeServer()
+         until v.extrastats.Gamemode.Value == "None"
+         wait(2)
+     end
+ end
+ end
 end)
-    Farm:Label("Hop City")
-        
+ Farm:Label("Hop City")
+     
 Farm:Dropdown("Enemies", Enemyhop, function(Enemyhop)        
-    getgenv().enemyhop = Enemyhop
-        end)
+ getgenv().enemyhop = Enemyhop
+     end)
 
-        Farm:Toggle("Auto Farm", false, function(m)         
-            mm = m
-            while mm do task.wait()
-                for _,v in pairs(game:GetService("Players"):GetChildren()) do
-                    if  v.Name ==  "yes" and v.extrastats.Gamemode.Value == "None"  then
-            local args = {
-                [1] = workspace.Maps["Hop City"].EnemyFolder:FindFirstChild(enemyhop)
-            }
+     Farm:Toggle("Auto Farm", false, function(m)         
+         mm = m
+         while mm do task.wait()
+             for _,v in pairs(game:GetService("Players"):GetChildren()) do
+                 if  v.Name ==  "yes" and v.extrastats.Gamemode.Value == "None"  then
+         local args = {
+             [1] = workspace.Maps["Hop City"].EnemyFolder:FindFirstChild(enemyhop)
+         }
 
-            game:GetService("ReplicatedStorage").Remotes.HeroRemotes.AttackEnemy:FireServer(unpack(args))
-            repeat wait() 
-                game:GetService("ReplicatedStorage").Remotes.HeroRemotes.AttackClick:InvokeServer()
-            until v.extrastats.Gamemode.Value == "None"
-        end
-    end
-        end
-    end)
-    Farm:Toggle("Teleport to mob", false, function(z)         
-        zz = z
-        while zz do task.wait()
-            for _,v in pairs(game:GetService("Players"):GetChildren()) do
-                if  v.Name ==  "yes" and v.extrastats.Gamemode.Value == "None"  then
-                    local Time = 0.5
-                    local tween =  game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(Time), {CFrame = game.workspace.Maps["Hop City"].EnemyFolder[enemyhop].HumanoidRootPart.CFrame})                                       
-                    tween:Play()
-                    tween.Completed:Wait(E)
-                    wait(120)    
-            repeat wait() 
-                game:GetService("ReplicatedStorage").Remotes.HeroRemotes.AttackClick:InvokeServer()
-            until v.extrastats.Gamemode.Value == "None"
-            wait(2)
-        end
-    end
-    end
+         game:GetService("ReplicatedStorage").Remotes.HeroRemotes.AttackEnemy:FireServer(unpack(args))
+         repeat wait() 
+             game:GetService("ReplicatedStorage").Remotes.HeroRemotes.AttackClick:InvokeServer()
+         until v.extrastats.Gamemode.Value == "None"
+     end
+ end
+     end
+ end)
+ Farm:Toggle("Teleport to mob", false, function(z)         
+     zz = z
+     while zz do task.wait()
+         for _,v in pairs(game:GetService("Players"):GetChildren()) do
+             if  v.Name ==  "yes" and v.extrastats.Gamemode.Value == "None"  then
+                 local Time = 0.5
+                 local tween =  game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(Time), {CFrame = game.workspace.Maps["Hop City"].EnemyFolder[enemyhop].HumanoidRootPart.CFrame})                                       
+                 tween:Play()
+                 tween.Completed:Wait(E)
+                 wait(120)    
+         repeat wait() 
+             game:GetService("ReplicatedStorage").Remotes.HeroRemotes.AttackClick:InvokeServer()
+         until v.extrastats.Gamemode.Value == "None"
+         wait(2)
+     end
+ end
+ end
 end)
-    Farm:Label("Gothic City")
-        
+ Farm:Label("Gothic City")
+     
 Farm:Dropdown("Enemies", Enemybat, function(Enemybat)        
-    getgenv().enemybat = Enemybat
-        end)
+ getgenv().enemybat = Enemybat
+     end)
 
-        Farm:Toggle("Auto Farm", false, function(m)         
-            mm = m
-            while mm do task.wait()
-                for _,v in pairs(game:GetService("Players"):GetChildren()) do
-                    if  v.Name ==  "yes" and v.extrastats.Gamemode.Value == "None"  then
-            local args = {
-                [1] = workspace.Maps["Gothic City"].EnemyFolder:FindFirstChild(enemybat)
-            }
+     Farm:Toggle("Auto Farm", false, function(m)         
+         mm = m
+         while mm do task.wait()
+             for _,v in pairs(game:GetService("Players"):GetChildren()) do
+                 if  v.Name ==  "yes" and v.extrastats.Gamemode.Value == "None"  then
+         local args = {
+             [1] = workspace.Maps["Gothic City"].EnemyFolder:FindFirstChild(enemybat)
+         }
 
-            game:GetService("ReplicatedStorage").Remotes.HeroRemotes.AttackEnemy:FireServer(unpack(args))
-            repeat wait() 
-                game:GetService("ReplicatedStorage").Remotes.HeroRemotes.AttackClick:InvokeServer()
-            until v.extrastats.Gamemode.Value == "None"
-        end
-    end
-        end
-    end)
-    Farm:Toggle("Teleport to mob", false, function(z)         
-        zz = z
-        while zz do task.wait()
-            for _,v in pairs(game:GetService("Players"):GetChildren()) do
-                local Time = 0.5
-                local tween =  game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(Time), {CFrame = game.workspace.Maps["Gothic City"].EnemyFolder[enemybat].HumanoidRootPart.CFrame})                                       
-                tween:Play()
-                tween.Completed:Wait(E)
-                wait(120)    
-            repeat wait() 
-                game:GetService("ReplicatedStorage").Remotes.HeroRemotes.AttackClick:InvokeServer()
-            until v.extrastats.Gamemode.Value == "None"
-            wait(2)
-        end
-    end
-    end)
+         game:GetService("ReplicatedStorage").Remotes.HeroRemotes.AttackEnemy:FireServer(unpack(args))
+         repeat wait() 
+             game:GetService("ReplicatedStorage").Remotes.HeroRemotes.AttackClick:InvokeServer()
+         until v.extrastats.Gamemode.Value == "None"
+     end
+ end
+     end
+ end)
+ Farm:Toggle("Teleport to mob", false, function(z)         
+     zz = z
+     while zz do task.wait()
+         for _,v in pairs(game:GetService("Players"):GetChildren()) do
+             local Time = 0.5
+             local tween =  game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(Time), {CFrame = game.workspace.Maps["Gothic City"].EnemyFolder[enemybat].HumanoidRootPart.CFrame})                                       
+             tween:Play()
+             tween.Completed:Wait(E)
+             wait(120)    
+         repeat wait() 
+             game:GetService("ReplicatedStorage").Remotes.HeroRemotes.AttackClick:InvokeServer()
+         until v.extrastats.Gamemode.Value == "None"
+         wait(2)
+     end
+ end
+ end)
 
-    Farm:Label("Kumar-Raj")
-        
-    Farm:Dropdown("Enemies", Enemyku, function(Enemyku)        
-        getgenv().enemyku = Enemyku
-            end)
-    
-            Farm:Toggle("Auto Farm", false, function(m)         
-                mm = m
-                while mm do task.wait()
-                    for _,v in pairs(game:GetService("Players"):GetChildren()) do
-                        if  v.Name ==  "yes" and v.extrastats.Gamemode.Value == "None"  then
-                local args = {
-                    [1] = workspace.Maps["Kumar-Raj"].EnemyFolder:FindFirstChild(enemyku)
-                }
-    
-                game:GetService("ReplicatedStorage").Remotes.HeroRemotes.AttackEnemy:FireServer(unpack(args))
-                repeat wait() 
-                    game:GetService("ReplicatedStorage").Remotes.HeroRemotes.AttackClick:InvokeServer()
-                until v.extrastats.Gamemode.Value == "None"
-            end
-        end
-            end
-        end)
-        Farm:Toggle("Teleport to mob", false, function(z)         
-            zz = z
-            while zz do task.wait()
-                for _,v in pairs(game:GetService("Players"):GetChildren()) do
-                    if  v.Name ==  "yes" and v.extrastats.Gamemode.Value == "None"  then
-                        local Time = 0.5
-                        local tween =  game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(Time), {CFrame = game.workspace.Maps["Kumar-Raj"].EnemyFolder[enemyku].HumanoidRootPart.CFrame})                                       
-                        tween:Play()
-                        tween.Completed:Wait(E)
-                        wait(120)      
-                repeat wait() 
-                    game:GetService("ReplicatedStorage").Remotes.HeroRemotes.AttackClick:InvokeServer()
-                until v.extrastats.Gamemode.Value == "None"
-                wait(2)
-            end
-        end
-        end
-    end)
+ Farm:Label("Kumar-Raj")
+     
+ Farm:Dropdown("Enemies", Enemyku, function(Enemyku)        
+     getgenv().enemyku = Enemyku
+         end)
+ 
+         Farm:Toggle("Auto Farm", false, function(m)         
+             mm = m
+             while mm do task.wait()
+                 for _,v in pairs(game:GetService("Players"):GetChildren()) do
+                     if  v.Name ==  "yes" and v.extrastats.Gamemode.Value == "None"  then
+             local args = {
+                 [1] = workspace.Maps["Kumar-Raj"].EnemyFolder:FindFirstChild(enemyku)
+             }
+ 
+             game:GetService("ReplicatedStorage").Remotes.HeroRemotes.AttackEnemy:FireServer(unpack(args))
+             repeat wait() 
+                 game:GetService("ReplicatedStorage").Remotes.HeroRemotes.AttackClick:InvokeServer()
+             until v.extrastats.Gamemode.Value == "None"
+         end
+     end
+         end
+     end)
+     Farm:Toggle("Teleport to mob", false, function(z)         
+         zz = z
+         while zz do task.wait()
+             for _,v in pairs(game:GetService("Players"):GetChildren()) do
+                 if  v.Name ==  "yes" and v.extrastats.Gamemode.Value == "None"  then
+                     local Time = 0.5
+                     local tween =  game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(Time), {CFrame = game.workspace.Maps["Kumar-Raj"].EnemyFolder[enemyku].HumanoidRootPart.CFrame})                                       
+                     tween:Play()
+                     tween.Completed:Wait(E)
+                     wait(120)      
+             repeat wait() 
+                 game:GetService("ReplicatedStorage").Remotes.HeroRemotes.AttackClick:InvokeServer()
+             until v.extrastats.Gamemode.Value == "None"
+             wait(2)
+         end
+     end
+     end
+ end)
 Eggs:Dropdown("Map", Arena, function(Arena)        
-    getgenv().eggs = Arena
-        end)
+ getgenv().eggs = Arena
+     end)
 
 
-        Eggs:Toggle("Auto Hatch", false, function(f)         
-            ff = f
-        while ff do task.wait(.5)
-    
-                local args = {
-                    [1] = eggs
-                }
-                
-                game:GetService("ReplicatedStorage").Remotes.InventoryRemotes.HeroRoll:InvokeServer(unpack(args))
-        end
-    end)
+     Eggs:Toggle("Auto Hatch", false, function(f)         
+         ff = f
+     while ff do task.wait(.5)
+ 
+             local args = {
+                 [1] = eggs
+             }
+             
+             game:GetService("ReplicatedStorage").Remotes.InventoryRemotes.HeroRoll:InvokeServer(unpack(args))
+     end
+ end)
 
-    Eggs:Toggle("Auto Hatch Ticket Crystal", false, function(f)         
-        ff = f
-    while ff do task.wait()
-        for _,v in pairs(game:GetService("Players").yes.PlayerGui.CrystalShop:GetChildren()) do
-            if  v.Name ==  "Animating" and v.Value == false  then
-            game:GetService("ReplicatedStorage").Remotes.HeroRemotes.AttackClick:InvokeServer()
-        local args = {
-            [1] = "Robux Crystal"
-        }
-        
-        game:GetService("ReplicatedStorage").Remotes.InventoryRemotes.PurchaseArenaItem:InvokeServer(unpack(args))
-    end
+ Eggs:Toggle("Auto Hatch Ticket Crystal", false, function(f)         
+     ff = f
+ while ff do task.wait()
+     for _,v in pairs(game:GetService("Players").yes.PlayerGui.CrystalShop:GetChildren()) do
+         if  v.Name ==  "Animating" and v.Value == false  then
+         game:GetService("ReplicatedStorage").Remotes.HeroRemotes.AttackClick:InvokeServer()
+     local args = {
+         [1] = "Robux Crystal"
+     }
+     
+     game:GetService("ReplicatedStorage").Remotes.InventoryRemotes.PurchaseArenaItem:InvokeServer(unpack(args))
+ end
 end
-    end
+ end
 end)
 
 
 
 
 Oth:Dropdown("Map", Arena, function(Arena)        
-    getgenv().tp = Arena
-        end)
+ getgenv().tp = Arena
+     end)
 
 Oth:Button("Teleport to ", function()
 local args = {
-    [1] = tp
+ [1] = tp
 }
 
 game:GetService("ReplicatedStorage").Remotes.LocationRemotes.ChangeLocation:InvokeServer(unpack(args))
@@ -435,5 +448,8 @@ game.Players.LocalPlayer.Character.Humanoid:Destroy()
 
 end)
 
+    end
+   end)
 
 
+ 
