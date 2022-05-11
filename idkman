@@ -434,3 +434,11 @@ game:GetService("ReplicatedStorage").Remotes.LocationRemotes.ChangeLocation:Invo
 game.Players.LocalPlayer.Character.Humanoid:Destroy()
 
 end)
+
+Oth:Button("Copy Discord ", function()
+    setclipboard("https://discord.gg/sVvCy5Sb")
+    toclipboard("https://discord.gg/sVvCy5Sb")
+    
+    end)
+
+
